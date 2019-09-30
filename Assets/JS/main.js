@@ -9,9 +9,15 @@ $(document).ready(function() {
         let $sprite = $('<img>')
         let $name = $('#name')
         let $height = $('#height')
+        let $weight = $('#weight')
         
         $name.text(response.name + " #" + response.id)
-        $height.text('0.' + response.height);
+        $height.text('Height: 0.' + response.height + "m");
+
+        $weight.text('Weight: ' + response.weight / 10 + 'kg')
+    
+
+        
 
         $sprite.attr('src', response.sprites.front_default)
 
