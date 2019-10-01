@@ -37,6 +37,7 @@ function displayPokemon(response) {
     
     $name.text(response.name + " #" + response.id)
     $type.text(pokeType)
+
     $height.text('Height: 0.' + response.height + "m");
 
     $weight.text('Weight: ' + response.weight / 10 + 'kg')
