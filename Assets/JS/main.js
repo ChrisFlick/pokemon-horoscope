@@ -33,7 +33,6 @@ function displayPokemon(response) {
     let $height = $('#height')
     let $weight = $('#weight')
 
-
     pokeType = response.types;
     console.log(pokeType)
     
@@ -57,7 +56,16 @@ function displayPokemon(response) {
     $('#sprite').empty()
     $('#sprite').append($sprite)    
 
+    let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
+
+    horoscope.then(function(response) {
+        displayHoroscope(response)
+    });
     
+}
+
+function displayHoroscope(response) {
+    console.log(response)
 }
 
 function getPokemon(mon) {
