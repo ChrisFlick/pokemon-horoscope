@@ -1,4 +1,6 @@
-let pokeType
+
+
+let pokeType;
 
 $(document).ready(function() {
     let pokemon = getPokemon('pikachu');
@@ -31,7 +33,6 @@ function displayPokemon(response) {
     let $height = $('#height')
     let $weight = $('#weight')
 
-
     pokeType = response.types;
     console.log(pokeType)
     
@@ -55,7 +56,16 @@ function displayPokemon(response) {
     $('#sprite').empty()
     $('#sprite').append($sprite)    
 
+    let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
+
+    horoscope.then(function(response) {
+        displayHoroscope(response)
+    });
     
+}
+
+function displayHoroscope(response) {
+    console.log(response)
 }
 
 function getPokemon(mon) {
@@ -74,4 +84,37 @@ function getHoroscop(sign) {
         url: queryURL,
         method: 'GET',
     })
+}
+
+function horoscopeType(type) {
+    let horoscope;
+
+    if (type === 'fire' || type === 'fighting') {
+        horoscope = 'aries'
+    } else if (type === 'rock' || type === 'steel') {
+        horoscope = 'taurus'
+    } else if (type === 'fairy') {
+        horoscope = 'gemini'
+    } else if (type === 'dark') {
+        horoscope = 'cancer'
+    } else if (type === 'dragon' ) {
+        horoscope = 'leo'
+    } else if (type === 'flying') {
+        horoscope = 'virgo'
+    } else if (type === 'ghost' || type === 'psychic') {
+        horoscope = 'libra'
+    } else if (type === 'bug') {
+        horoscope = 'scorpio'
+    } else if (type === 'normal' || type === 'ground') {
+        horoscope = 'sagitarius'
+    } else if (type === 'electric') {
+        horoscope = 'capricorn';
+    } else if (type === 'water' || type === 'ice') {
+        horoscope = 'aquarius'
+    } else if (type === 'grass' || type === 'poison') {
+        horoscope = 'pisces'
+    }
+
+
+    return horoscope
 }
