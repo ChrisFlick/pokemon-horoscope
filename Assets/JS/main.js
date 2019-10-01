@@ -1,4 +1,6 @@
-let pokeType
+
+
+let pokeType;
 
 $(document).ready(function() {
     let pokemon = getPokemon('pikachu');
@@ -37,23 +39,34 @@ function displayPokemon(response) {
     let $height = $('#height')
     let $weight = $('#weight')
 
-
-    pokeType = response.types[0].type.name;
+    pokeType = response.types;
+    console.log(pokeType)
     
     
     $name.text(response.name + " #" + response.id)
-    $type.text(pokeType)
+
+    let types = pokeType[0].type.name
+    for (let i = 1; i < pokeType.length; i++) {
+        types += ", " + pokeType[i].type.name;
+    }
+    $type.text(types)
+    
 
     $height.text('Height: 0.' + response.height + "m");
 
     $weight.text('Weight: ' + response.weight / 10 + 'kg')
     
     $sprite.attr('src', response.sprites.front_default)
-    $sprite.css('width', '1000px')
+    $sprite.css('width', '300px')
 
     $('#sprite').empty()
     $('#sprite').append($sprite)    
 
+    let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
+
+    horoscope.then(function(response) {
+        displayHoroscope(response)
+    });
     
 }
 
@@ -66,6 +79,7 @@ function displayHoroscope(response) {
     let horoTextEl = $("<p>").text(horoText);
 
     $("#horoscope").append(horoSignEl).append(horoTextEl);
+    console.log(response)
 }
 
 function getPokemon(mon) {
@@ -84,4 +98,37 @@ function getHoroscop(sign) {
         url: queryURL,
         method: 'GET',
     })
+}
+
+function horoscopeType(type) {
+    let horoscope;
+
+    if (type === 'fire' || type === 'fighting') {
+        horoscope = 'aries'
+    } else if (type === 'rock' || type === 'steel') {
+        horoscope = 'taurus'
+    } else if (type === 'fairy') {
+        horoscope = 'gemini'
+    } else if (type === 'dark') {
+        horoscope = 'cancer'
+    } else if (type === 'dragon' ) {
+        horoscope = 'leo'
+    } else if (type === 'flying') {
+        horoscope = 'virgo'
+    } else if (type === 'ghost' || type === 'psychic') {
+        horoscope = 'libra'
+    } else if (type === 'bug') {
+        horoscope = 'scorpio'
+    } else if (type === 'normal' || type === 'ground') {
+        horoscope = 'sagitarius'
+    } else if (type === 'electric') {
+        horoscope = 'capricorn';
+    } else if (type === 'water' || type === 'ice') {
+        horoscope = 'aquarius'
+    } else if (type === 'grass' || type === 'poison') {
+        horoscope = 'pisces'
+    }
+
+
+    return horoscope
 }
