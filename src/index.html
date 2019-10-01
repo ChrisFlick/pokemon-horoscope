@@ -8,6 +8,10 @@
      <!-- bulma and font awesome link -->
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
      <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+     
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+     <link rel="stylesheet" href='../Assets/CSS/style.css'>
 
      <title>Pokemon Horoscope</title>
 
@@ -27,28 +31,30 @@
      <!-- search bar for pokemon -->
      <div class="columns is-mobile">
           <div class="column">
-               <input class="input is-rounded" type="text" placeholder="Pokemon name">
+            <form id="search">
+               <input class="input is-rounded" type="text" placeholder="Pokemon name" id="pokemonName">
+            </form>
                <!-- card column left for poke info -->
                <div class="card">
                     <div class="card-content">
-                         <p class="title is-size-7">
+                         <p class="title is-size-7" id='name'>
                               Pokemon name and number:
                          </p>
                          <hr>
-                         <p class="subtitle is-size-7">
+                         <p class="subtitle is-size-7" id='type'>
                               Type:
                          </p>
-                         <p class="subtitle is-size-7">
+                         <p class="subtitle is-size-7" id='weight'>
                               Weight:
                          </p>
-                         <p class="subtitle is-size-7">
+                         <p class="subtitle is-size-7" id='height'>
                               Height:
                          </p>
                     </div>
                </div>
           </div>
           <!-- img column right of pokemon -->
-          <div class="column">image placeholder<img></img></div>
+          <div class="column" id="sprite"></div>
      </div>
      <!-- card with image of sign-->
      <div class="card">
@@ -69,5 +75,7 @@
      </div>
 
 </body>
+
+<script type='text/javascript' src='../Assets/JS/main.js'></script>
 
 </html>
