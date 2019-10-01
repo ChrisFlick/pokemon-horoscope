@@ -71,6 +71,7 @@ function displayPokemon(response) {
 }
 
 function displayHoroscope(response) {
+    $('#horoscope').empty();
     // Display horoscope
     let horoResponse = JSON.parse(response);
     let horoSign = horoResponse.sunsign;
@@ -79,7 +80,7 @@ function displayHoroscope(response) {
     let horoTextEl = $("<p>").text(horoText);
 
     $("#horoscope").append(horoSignEl).append(horoTextEl);
-    console.log(response)
+    console.log(horoResponse)
 }
 
 function getPokemon(mon) {
