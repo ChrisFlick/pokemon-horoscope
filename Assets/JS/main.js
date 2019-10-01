@@ -15,6 +15,12 @@ $(document).ready(function() {
             displayPokemon(response)
         });
     });
+
+    // let horoscope = getHoroscop('gemini');
+
+    // horoscope.then(function(response) {
+    //     displayHoroscope(response)
+    // })
 });
 
 
@@ -49,6 +55,17 @@ function displayPokemon(response) {
     $('#sprite').append($sprite)    
 
     
+}
+
+function displayHoroscope(response) {
+    // Display horoscope
+    let horoResponse = JSON.parse(response);
+    let horoSign = horoResponse.sunsign;
+    let horoSignEl = $("<p>").text(horoSign);
+    let horoText = horoResponse.horoscope;
+    let horoTextEl = $("<p>").text(horoText);
+
+    $("#horoscope").append(horoSignEl).append(horoTextEl);
 }
 
 function getPokemon(mon) {
