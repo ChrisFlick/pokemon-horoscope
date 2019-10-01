@@ -26,6 +26,23 @@ $(document).ready(function() {
 });
 
 
+/***********************
+****** Image Links *****
+***********************/
+
+let aquariusImg = $("<img>").attr("src", "../Assets/images/aquarius.jpg");
+let ariesImg = $("<img>").attr("src", "../Assets/images/aries.jpg");
+let cancerImg = $("<img>").attr("src", "../Assets/images/cancer.jpg");
+let capricornImg = $("<img>").attr("src", "../Assets/images/capricorn.jpg");
+let geminiImg = $("<img>").attr("src", "../Assets/images/gemini.jpg");
+let leoImg = $("<img>").attr("src", "../Assets/images/leo.jpg");
+let libraImg = $("<img>").attr("src", "../Assets/images/libra.jpg");
+let piscesImg = $("<img>").attr("src", "../Assets/images/pisces.jpg");
+let sagittariusImg = $("<img>").attr("src", "../Assets/images/sagittarius.jpg");
+let scorpioImg = $("<img>").attr("src", "../Assets/images/scorpio.jpg");
+let taurusImg = $("<img>").attr("src", "../Assets/images/taurus.jpg");
+let virgoImg = $("<img>").attr("src", "../Assets/images/virgo.jpg");
+
 /*********************
 ****** Functions *****
 *********************/
