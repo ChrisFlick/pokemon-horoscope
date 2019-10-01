@@ -32,18 +32,25 @@ function displayPokemon(response) {
     let $weight = $('#weight')
 
 
-    pokeType = response.types[0].type.name;
+    pokeType = response.types;
+    console.log(pokeType)
     
     
     $name.text(response.name + " #" + response.id)
-    $type.text(pokeType)
+
+    let types = pokeType[0].type.name
+    for (let i = 1; i < pokeType.length; i++) {
+        types += ", " + pokeType[i].type.name;
+    }
+    $type.text(types)
+    
 
     $height.text('Height: 0.' + response.height + "m");
 
     $weight.text('Weight: ' + response.weight / 10 + 'kg')
     
     $sprite.attr('src', response.sprites.front_default)
-    $sprite.css('width', '1000px')
+    $sprite.css('width', '300px')
 
     $('#sprite').empty()
     $('#sprite').append($sprite)    
