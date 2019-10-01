@@ -19,10 +19,16 @@ function displayPokemon(response) {
 
     let $sprite = $('<img>')
     let $name = $('#name')
+    let $type = $('#type')
     let $height = $('#height')
     let $weight = $('#weight')
+
+    pokeType = response.types[0].type.name;
     
     $name.text(response.name + " #" + response.id)
+
+    $type.text(pokeType)
+
     $height.text('Height: 0.' + response.height + "m");
 
     $weight.text('Weight: ' + response.weight / 10 + 'kg')
@@ -32,8 +38,7 @@ function displayPokemon(response) {
     $('#sprite').empty()
     $('#sprite').append($sprite)    
 
-    pokeType = response.types[0].type.name;
-    console.log(pokeType)
+    
 }
 
 function getPokemon(mon) {
