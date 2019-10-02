@@ -68,6 +68,7 @@ function displayPokemon(response) {
     console.log(response)
 
     let $sprite = $('<img>')
+    let $spriteAnchor = $("<a>");
     let $name = $('#name')
     let $type = $('#type')
     let $height = $('#height')
@@ -92,9 +93,13 @@ function displayPokemon(response) {
     
     $sprite.attr('src', response.sprites.front_default);
     $sprite.css('width', '300px');
+    $spriteAnchor.attr("href", `https://bulbapedia.bulbagarden.net/wiki/${pokemon.name}_(Pok%C3%A9mon)`)
+    .attr("target", "_blank")
+    .attr("alt", `${pokemon.name}`);
+    $spriteAnchor.append($sprite);
 
     $('#sprite').empty();
-    $('#sprite').append($sprite);   
+    $('#sprite').append($spriteAnchor);
 
     let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
 
