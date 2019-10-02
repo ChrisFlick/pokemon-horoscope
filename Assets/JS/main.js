@@ -1,12 +1,14 @@
 'use strict'
 
 let pokeType;
+let pokemon
 
 $(document).ready(function() {
-    let pokemon = getPokemon('pikachu');
+    pokemon = getPokemon('pikachu');
    
 
     pokemon.then(function(response) {
+        pokemon = response
         displayPokemon(response)
     });
 
@@ -16,7 +18,8 @@ $(document).ready(function() {
         
 
         pokemon.then(function(response) {
-            displayPokemon(response)
+            pokemon = response
+            displayPokemon(pokemon)
 
             let sound = new Audio('../assets/sound/pokemon.mp3')
             sound.volume = .1;
@@ -27,6 +30,16 @@ $(document).ready(function() {
             // debugger;
         });
     });
+
+    // $('#evolve').on('click', function() {
+    //     let species = pokemon.species.url
+    //     species = getSpecies(species)
+
+    //     console.log(species)
+
+    //     let evolution = species.responseJSON.evolution_chain.url
+    //     console.log(evolution)
+    // })
 
 });
 
@@ -124,6 +137,13 @@ function getHoroscop(sign) {
     return $.ajax({
         url: queryURL,
         method: 'GET',
+    })
+}
+
+function getSpecies(queryURL) {
+    return $.ajax({
+        url: queryURL,
+        method: 'GET'
     })
 }
 
