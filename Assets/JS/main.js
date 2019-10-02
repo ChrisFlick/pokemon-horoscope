@@ -31,6 +31,23 @@ $(document).ready(function() {
 });
 
 
+/***********************
+****** Image Links *****
+***********************/
+
+let aquariusImg = $("<img>").attr("src", "../Assets/images/aquarius.jpg");
+let ariesImg = $("<img>").attr("src", "../Assets/images/aries.jpg");
+let cancerImg = $("<img>").attr("src", "../Assets/images/cancer.jpg");
+let capricornImg = $("<img>").attr("src", "../Assets/images/capricorn.jpg");
+let geminiImg = $("<img>").attr("src", "../Assets/images/gemini.jpg");
+let leoImg = $("<img>").attr("src", "../Assets/images/leo.jpg");
+let libraImg = $("<img>").attr("src", "../Assets/images/libra.jpg");
+let piscesImg = $("<img>").attr("src", "../Assets/images/pisces.jpg");
+let sagittariusImg = $("<img>").attr("src", "../Assets/images/sagittarius.jpg");
+let scorpioImg = $("<img>").attr("src", "../Assets/images/scorpio.jpg");
+let taurusImg = $("<img>").attr("src", "../Assets/images/taurus.jpg");
+let virgoImg = $("<img>").attr("src", "../Assets/images/virgo.jpg");
+
 /*********************
 ****** Functions *****
 *********************/
@@ -54,18 +71,18 @@ function displayPokemon(response) {
     for (let i = 1; i < pokeType.length; i++) {
         types += ", " + pokeType[i].type.name;
     }
-    $type.text(types)
+    $type.text("Type: (" + types + ")");
     
 
     $height.text('Height: 0.' + response.height + "m");
 
-    $weight.text('Weight: ' + response.weight / 10 + 'kg')
+    $weight.text('Weight: ' + response.weight / 10 + 'kg');
     
-    $sprite.attr('src', response.sprites.front_default)
-    $sprite.css('width', '300px')
+    $sprite.attr('src', response.sprites.front_default);
+    $sprite.css('width', '300px');
 
-    $('#sprite').empty()
-    $('#sprite').append($sprite)    
+    $('#sprite').empty();
+    $('#sprite').append($sprite);   
 
     let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
 
@@ -80,7 +97,7 @@ function displayHoroscope(response) {
     // Display horoscope
     let horoResponse = JSON.parse(response);
     let horoSign = horoResponse.sunsign;
-    let horoSignEl = $("<p>").text(horoSign);
+    let horoSignEl = $("<h1>").text(horoSign);
     let horoText = horoResponse.horoscope;
     let horoTextEl = $("<p>").text(horoText);
     let date = $('<span>');
