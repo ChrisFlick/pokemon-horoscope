@@ -1,28 +1,33 @@
-
+'use strict'
 
 let pokeType;
 
 $(document).ready(function() {
     let pokemon = getPokemon('pikachu');
+   
 
     pokemon.then(function(response) {
         displayPokemon(response)
     });
 
     $('#search').on('submit', function() {
-        event.preventDefault()
-        pokemon = getPokemon($('#pokemonName').val())
+        event.preventDefault()  
+        pokemon = getPokemon($('#pokemonName').val().toLowerCase())
+        
 
         pokemon.then(function(response) {
             displayPokemon(response)
+
+            let sound = new Audio('../assets/sound/pokemon.mp3')
+            sound.volume = .1;
+            sound.play();
+
+        }).catch(function(error) {
+            console.log(error);
+            // debugger;
         });
     });
 
-    // let horoscope = getHoroscop('gemini');
-
-    // horoscope.then(function(response) {
-    //     displayHoroscope(response)
-    // })
 });
 
 
@@ -78,6 +83,10 @@ function displayHoroscope(response) {
     let horoSignEl = $("<p>").text(horoSign);
     let horoText = horoResponse.horoscope;
     let horoTextEl = $("<p>").text(horoText);
+    let date = $('<span>');
+
+
+    $('#horoscope').append(date)
 
     $("#horoscope").append(horoSignEl).append(horoTextEl);
     console.log(horoResponse)
@@ -129,7 +138,6 @@ function horoscopeType(type) {
     } else if (type === 'grass' || type === 'poison') {
         horoscope = 'pisces'
     }
-
 
     return horoscope
 }
