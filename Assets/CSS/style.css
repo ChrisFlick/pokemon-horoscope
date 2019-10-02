@@ -1,0 +1,24 @@
+@media only screen and (min-width: 600px) {
+    .image {
+        width: 200px;
+    }
+    #horoscope {
+        position: relative;
+        top: -100px;
+        left: 200px;
+        width: 600px
+    }
+    .wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        width: 960px;
+    }
+
+    body {
+        background-image: url('../images/dust_scratches.png');
+    }
+}
+
+.wrapper {
+    background-color: 	white;
+}
