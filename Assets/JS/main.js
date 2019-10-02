@@ -93,8 +93,10 @@ function displayPokemon(response) {
     
     $sprite.attr('src', response.sprites.front_default);
     $sprite.css('width', '300px');
+    // Attach a link to Bulbapedia.net
     $spriteAnchor.attr("href", `https://bulbapedia.bulbagarden.net/wiki/${pokemon.name}_(Pok%C3%A9mon)`)
     .attr("target", "_blank")
+    // Assign alt image attribute
     .attr("alt", `${pokemon.name}`);
     $spriteAnchor.append($sprite);
 
