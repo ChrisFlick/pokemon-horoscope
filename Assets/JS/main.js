@@ -40,7 +40,6 @@ $(document).ready(function() {
     //     let evolution = species.responseJSON.evolution_chain.url
     //     console.log(evolution)
     // })
-
 });
 
 
