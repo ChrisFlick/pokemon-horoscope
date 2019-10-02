@@ -152,28 +152,75 @@ function horoscopeType(type) {
 
     if (type === 'fire' || type === 'fighting') {
         horoscope = 'aries'
+        
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(ariesImg);
+
     } else if (type === 'rock' || type === 'steel') {
         horoscope = 'taurus'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(taurusImg);
+
     } else if (type === 'fairy') {
         horoscope = 'gemini'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(geminiImg);
+
     } else if (type === 'dark') {
         horoscope = 'cancer'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(cancerImg);
+
     } else if (type === 'dragon' ) {
         horoscope = 'leo'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(leoImg);
+
     } else if (type === 'flying') {
         horoscope = 'virgo'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(virgoImg);
+
     } else if (type === 'ghost' || type === 'psychic') {
         horoscope = 'libra'
+        
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(libraImg);
+
     } else if (type === 'bug') {
         horoscope = 'scorpio'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(scorpioImg);
+
     } else if (type === 'normal' || type === 'ground') {
         horoscope = 'sagitarius'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(sagittariusImg);
+
     } else if (type === 'electric') {
         horoscope = 'capricorn';
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(capricornImg);
+
     } else if (type === 'water' || type === 'ice') {
         horoscope = 'aquarius'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(aquariusImg);
+
     } else if (type === 'grass' || type === 'poison') {
         horoscope = 'pisces'
+
+        $('#horoscopeImg').empty();
+        $('#horoscopeImg').append(piscesImg);
     }
 
     return horoscope
