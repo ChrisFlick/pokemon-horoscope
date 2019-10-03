@@ -73,11 +73,26 @@ function displayPokemon(response) {
     let $type = $('#type')
     let $height = $('#height')
     let $weight = $('#weight')
+    let imageHREF = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${response.id}.png`;
+    let imageLink = '';
+
+    // If the file name in the image link lacks a leading 0, insert a "0".
+    if (imageHREF.length === 62) {
+        let imageArray = imageHREF.split('');
+        imageArray.splice(-6, 0, "0");
+        imageLink = imageArray.join('');
+    } else if (imageHREF.length === 61) {
+        // If the file name in the image link lacks a leading 00, insert a "00".
+        let imageArray = imageHREF.split('');
+        imageArray.splice(-5, 0, "0", "0");
+        imageLink = imageArray.join('');
+    } else {
+        imageLink = imageHREF;
+    }
 
     pokeType = response.types;
     console.log(pokeType)
-    
-    
+
     $name.text(response.name + " #" + response.id)
 
     let types = pokeType[0].type.name
@@ -91,9 +106,9 @@ function displayPokemon(response) {
 
     $weight.text('Weight: ' + response.weight / 10 + 'kg');
     
-    $sprite.attr('src', response.sprites.front_default);
+    $sprite.attr('src', `${imageLink}`);
     $sprite.css('width', '300px');
-    // Attach a link to Bulbapedia.net
+    // Attach a link to Bulbapedia.net to the Pokemon image.
     $spriteAnchor.attr("href", `https://bulbapedia.bulbagarden.net/wiki/${pokemon.name}_(Pok%C3%A9mon)`)
     .attr("target", "_blank")
     // Assign alt image attribute
@@ -121,11 +136,9 @@ function displayHoroscope(response) {
     let horoTextEl = $("<p>").text(horoText);
     let date = $('<span>');
 
-
     $('#horoscope').append(date)
 
     $("#horoscope").append(horoSignEl).append(horoTextEl);
-    console.log(horoResponse)
 }
 
 function getPokemon(mon) {
@@ -138,7 +151,7 @@ function getPokemon(mon) {
 }
 
 function getHoroscop(sign) {
-    let queryURL = `https://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
+    let queryURL = `http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
 
     return $.ajax({
         url: queryURL,
