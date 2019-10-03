@@ -151,7 +151,7 @@ function getPokemon(mon) {
 }
 
 function getHoroscop(sign) {
-    let queryURL = `https://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
+    let queryURL = `http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
 
     return $.ajax({
         url: queryURL,
