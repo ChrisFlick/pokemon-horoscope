@@ -20,6 +20,7 @@ $(document).ready(function() {
         event.preventDefault()  
         pokemon = getPokemon($('#pokemonName').val().toLowerCase())
         sound.play();
+        console.log('Doo doo dodo dee')
 
         
 
