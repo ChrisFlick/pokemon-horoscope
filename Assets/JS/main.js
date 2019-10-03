@@ -1,5 +1,9 @@
 'use strict'
 
+
+let sound = new Audio('../assets/sound/pokemon.mp3')
+sound.volume = .1;
+
 let pokeType;
 let pokemon
 
@@ -15,16 +19,13 @@ $(document).ready(function() {
     $('#search').on('submit', function() {
         event.preventDefault()  
         pokemon = getPokemon($('#pokemonName').val().toLowerCase())
+        sound.play();
+
         
 
         pokemon.then(function(response) {
             pokemon = response
             displayPokemon(pokemon)
-
-            let sound = new Audio('../assets/sound/pokemon.mp3')
-            sound.volume = .1;
-            sound.play();
-
         }).catch(function(error) {
             console.log(error);
             // debugger;
