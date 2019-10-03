@@ -1,7 +1,7 @@
 'use strict'
 
 
-let sound = new Audio('../assets/sound/pokemon.mp3')
+let sound = new Audio('../Assets/sound/pokemon.mp3')
 sound.volume = .1;
 
 let pokeType;
