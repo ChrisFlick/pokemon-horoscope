@@ -64,6 +64,15 @@ let virgoImg = $("<img>").attr("src", "../Assets/images/virgo.png");
 ****** Functions *****
 *********************/
 
+// Add leading zeros to image file names in img src if needed
+function zeroPad(number, width) {
+    let string = String(number);
+    while (string.length < width) {
+      string = "0" + string;
+    }
+    return string;
+  }
+
 function displayPokemon(response) {
     console.log(response)
 
@@ -73,22 +82,9 @@ function displayPokemon(response) {
     let $type = $('#type')
     let $height = $('#height')
     let $weight = $('#weight')
-    let imageHREF = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${response.id}.png`;
-    let imageLink = '';
+    let id = zeroPad(response.id, 3);
 
-    // If the file name in the image link lacks a leading 0, insert a "0".
-    if (imageHREF.length === 62) {
-        let imageArray = imageHREF.split('');
-        imageArray.splice(-6, 0, "0");
-        imageLink = imageArray.join('');
-    } else if (imageHREF.length === 61) {
-        // If the file name in the image link lacks a leading 00, insert a "00".
-        let imageArray = imageHREF.split('');
-        imageArray.splice(-5, 0, "0", "0");
-        imageLink = imageArray.join('');
-    } else {
-        imageLink = imageHREF;
-    }
+    let imageLink = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
 
     pokeType = response.types;
     console.log(pokeType)
@@ -100,7 +96,6 @@ function displayPokemon(response) {
         types += ", " + pokeType[i].type.name;
     }
     $type.text("Type: (" + types + ")");
-    
 
     $height.text('Height: 0.' + response.height + "m");
 
