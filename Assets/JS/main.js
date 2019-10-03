@@ -113,28 +113,30 @@ function displayPokemon(response) {
     $('#sprite').empty();
     $('#sprite').append($spriteAnchor);
 
-    let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
+    horoscopeType(pokeType[0].type.name)
 
-    horoscope.then(function(response) {
-        displayHoroscope(response)
-    });
+    // let horoscope = getHoroscop(horoscopeType(pokeType[0].type.name))
+
+    // horoscope.then(function(response) {
+    //     displayHoroscope(response)
+    // });
     
 }
 
-function displayHoroscope(response) {
-    $('#horoscope').empty();
-    // Display horoscope
-    let horoResponse = JSON.parse(response);
-    let horoSign = horoResponse.sunsign;
-    let horoSignEl = $("<h1>").text(horoSign);
-    let horoText = horoResponse.horoscope;
-    let horoTextEl = $("<p>").text(horoText);
-    let date = $('<span>');
+// function displayHoroscope(response) {
+//     $('#horoscope').empty();
+//     // Display horoscope
+//     let horoResponse = JSON.parse(response);
+//     let horoSign = horoResponse.sunsign;
+//     let horoSignEl = $("<h1>").text(horoSign);
+//     let horoText = horoResponse.horoscope;
+//     let horoTextEl = $("<p>").text(horoText);
+//     let date = $('<span>');
 
-    $('#horoscope').append(date)
+//     $('#horoscope').append(date)
 
-    $("#horoscope").append(horoSignEl).append(horoTextEl);
-}
+//     $("#horoscope").append(horoSignEl).append(horoTextEl);
+// }
 
 function getPokemon(mon) {
     let queryURL = `https://pokeapi.co/api/v2/pokemon/${mon}`
@@ -145,8 +147,17 @@ function getPokemon(mon) {
     })
 }
 
-function getHoroscop(sign) {
-    let queryURL = `http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
+// function getHoroscop(sign) { obsolete
+//     let queryURL = `http://sandipbgt.com/theastrologer/api/horoscope/${sign}/today/`
+
+//     return $.ajax({
+//         url: queryURL,
+//         method: 'GET',
+//     })
+// }
+
+function getHoroscope() {
+    let queryURL = 'https://www.horoscopes-and-astrology.com/json'
 
     return $.ajax({
         url: queryURL,
@@ -162,6 +173,7 @@ function getSpecies(queryURL) {
 }
 
 function horoscopeType(type) {
+    let api = getHoroscope()
     let horoscope;
 
     if (type === 'fire' || type === 'fighting') {
@@ -169,24 +181,38 @@ function horoscopeType(type) {
         
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(ariesImg);
+    
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Aries);
+        })
 
     } else if (type === 'rock' || type === 'steel') {
         horoscope = 'taurus'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(taurusImg);
-
+        
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Taurus);
+        })
     } else if (type === 'fairy') {
         horoscope = 'gemini'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(geminiImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Gemini);
+        })
     } else if (type === 'dark') {
         horoscope = 'cancer'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(cancerImg);
+
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Cancer);
+        })
 
     } else if (type === 'dragon' ) {
         horoscope = 'leo'
@@ -194,11 +220,19 @@ function horoscopeType(type) {
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(leoImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Leo);
+        })
+
     } else if (type === 'flying') {
         horoscope = 'virgo'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(virgoImg);
+
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Virgo);
+        })
 
     } else if (type === 'ghost' || type === 'psychic') {
         horoscope = 'libra'
@@ -206,23 +240,39 @@ function horoscopeType(type) {
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(libraImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Libra);
+        })
+
     } else if (type === 'bug') {
         horoscope = 'scorpio'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(scorpioImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Scorpio);
+        })
+
     } else if (type === 'normal' || type === 'ground') {
-        horoscope = 'sagitarius'
+        horoscope = 'sagittarius'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(sagittariusImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Sagittarius);
+        })
     } else if (type === 'electric') {
         horoscope = 'capricorn';
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(capricornImg);
+
+        api.then(function(response) {
+            console.log(response)
+            $('#horoscope').html(response.dailyhoroscope.Capricorn);
+        })
 
     } else if (type === 'water' || type === 'ice') {
         horoscope = 'aquarius'
@@ -230,11 +280,18 @@ function horoscopeType(type) {
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(aquariusImg);
 
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Aquarius);
+        })
     } else if (type === 'grass' || type === 'poison') {
         horoscope = 'pisces'
 
         $('#horoscopeImg').empty();
         $('#horoscopeImg').append(piscesImg);
+
+        api.then(function(response) {
+            $('#horoscope').html(response.dailyhoroscope.Pisces);
+        })
     }
 
     return horoscope
