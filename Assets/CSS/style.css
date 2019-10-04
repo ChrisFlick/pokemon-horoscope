@@ -9,6 +9,14 @@
 
 
 @media only screen and (min-width: 600px) {
+
+ #name {
+    font-family: myFirstFont;
+ }
+
+ #type {
+     font-family: myFirstFont;
+ }
    
  body{
      font-family: myFirstFont;

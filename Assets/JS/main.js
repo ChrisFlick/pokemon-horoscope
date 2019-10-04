@@ -78,12 +78,12 @@ function zeroPad(number, width) {
 function displayPokemon(response) {
     console.log(response)
 
-    let $sprite = $('<img>')
+    let $sprite = $('<img>');
     let $spriteAnchor = $("<a>");
-    let $name = $('#name')
-    let $type = $('#type')
-    let $height = $('#height')
-    let $weight = $('#weight')
+    let $name = $('#name');
+    let $type = $('#type');
+    let $height = $('#height');
+    let $weight = $('#weight');
     let id = zeroPad(response.id, 3);
 
     let imageLink = `https://assets.pokemon.com/assets/cms2/img/pokedex/full/${id}.png`;
