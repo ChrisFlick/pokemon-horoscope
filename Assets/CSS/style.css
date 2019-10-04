@@ -81,19 +81,23 @@
 }
 
 #name {
-    font-size: 7px;
+    font-family: sans-serif;
+    font-size: 14px;
 }
 
 #type {
-    font-size: 7px;
+    font-family: cursive;
+    font-size: 13px;
 }
 
 #weight {
-    font-size: 7px;
+    font-family: cursive;
+    font-size: 14px;
 }
 
 #height {
-    font-size: 7px;
+    font-family: cursive;
+    font-size: 14px;
 }
 
 #rcorners2 {
