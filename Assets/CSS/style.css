@@ -70,17 +70,15 @@ h1{
 
 @media only screen and (min-width: 600px) {
 
-    #name {
+    #name, #type, #weight, #height {
        font-family: myFirstFont;
-    }
-   
-    #type {
-        font-family: myFirstFont;
     }
       
     body{
         font-family: myFirstFont;
     }
+
+
        
        .image {
            width: 200px;
