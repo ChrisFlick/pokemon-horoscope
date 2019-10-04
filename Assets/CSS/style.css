@@ -60,8 +60,7 @@
          -o-transform:skew(8deg) rotate(3deg);
             transform:skew(8deg) rotate(3deg);
 }
-
-
+    
     #sprite{
         text-align: center;
     }
@@ -80,6 +79,23 @@
         
       }
 }
+
+#name {
+    font-size: 7px;
+}
+
+#type {
+    font-size: 7px;
+}
+
+#weight {
+    font-size: 7px;
+}
+
+#height {
+    font-size: 7px;
+}
+
 #rcorners2 {
     border-radius: 25px;
     border: 2px solid rgb(184, 184, 184);
@@ -92,6 +108,8 @@
 .wrapper
 {
     background-color: 	white;
+    font-family: myFirstFont;
+    font-size: 12%;
 }
 
 .footer {
