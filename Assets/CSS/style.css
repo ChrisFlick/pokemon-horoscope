@@ -1,13 +1,30 @@
+@font-face{
+    font-family: myFirstFont;
+    src: url(../font/Pokemon\ GB.ttf);
+    src: url(../font/pokemon_gb-webfont.woff) format('woff'),
+         url(../font/pokemon_gb-webfont.woff2) format('woff2');
+
+}
+
+
+
 @media only screen and (min-width: 600px) {
+   
+ body{
+     font-family: myFirstFont;
+ }
+    
     .image {
         width: 200px;
     }
+    
     #horoscope {
         position: relative;
         top: -100px;
         left: 200px;
         width: 600px
     }
+   
     .wrapper {
         margin-left: auto;
         margin-right: auto;
@@ -17,7 +34,8 @@
        -moz-box-shadow:0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
        box-shadow:0 6px 128px rgba(0, 0, 0, 0.3), 0 0 72px rgba(0, 0, 0, 0.1);
     }
-    .wrapper:before, .effect8:after
+   
+    .wrapper:before, .wrapper:after
 {
     content:"";
     position:absolute;
@@ -50,6 +68,8 @@
 
     body {
         background-image: url('../images/pokeball.jpg');
+        font-family: myFirstFont;
+        font-variant-caps: petite-caps;
     }
     #rcorners2 {
         border-radius: 25px;
@@ -76,9 +96,22 @@
 
 .footer {
     padding: 1rem;
-    background-color: #BE202F
+    background-color: #BE202F;
 }
 
 .hero {
-    background-color: #BE202F
+    background-color: #BE202F;
+    border-radius: 10px;
+    
+}
+form{
+    border: 8px solid black;
+    border-radius: 40px;
+}
+h1{
+    text-shadow:
+    -2px -2px 0 #000,
+    2px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }

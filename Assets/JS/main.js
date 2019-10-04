@@ -91,7 +91,7 @@ function displayPokemon(response) {
     pokeType = response.types;
     console.log(pokeType)
 
-    $name.text(response.name + " #" + response.id)
+    $name.text(response.name + " Pokédex#" + response.id)
 
     let types = pokeType[0].type.name
     for (let i = 1; i < pokeType.length; i++) {
